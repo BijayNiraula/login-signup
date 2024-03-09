@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <p style="text-align: center; color: red">
+      the backend api is hosted in free server so it take some time in first api
+      call request.
+    </p>
+    <div class="wrapper">
+      <div class="formWrapper">
+        <div class="topErrorMessage">
+          <strong> </strong>
+          <span
+            class="closebtn"
+            onclick="this.parentElement.style.display='none';"
+            >&times;</span
+          >
+        </div>
+
+        <div class="control">
+          <button class="showLoginBtn active" onclick="changeTab(1)">
+            Login
+          </button>
+          <button class="showSignupBtn inActive" onclick="changeTab(2)">
+            Signup
+          </button>
+        </div>
+
+        <h3 class="title">LOGIN</h3>
+
+        <form action="" class="login" id="loginForm">
+          <div class="">
+            <input
+              type="email"
+              name="email"
+              class="email"
+              placeholder="Email Address"
+            />
+            <span class="emailError errorMessage"></span>
+          </div>
+          <div class="">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="password"
+            />
+            <span class="passwordError errorMessage"></span>
+          </div>
+          <div class="forgetPasswordLink">
+            <a href="/">Forget Password ?</a>
+          </div>
+          <div class="submitBtnWrapper">
+            <button class="loadingBtn" disabled>
+              <div class="loader"></div>
+              loading
+            </button>
+            <input type="submit" class="loginBtn" value="Login" />
+          </div>
+        </form>
+        <form action="" class="signup" id="signupForm">
+          <div class="">
+            <input
+              type="text"
+              name="userName"
+              class="userName"
+              placeholder="UserName"
+            />
+            <span class="userNameError errorMessage"></span>
+          </div>
+          <div class="">
+            <input
+              type="email"
+              name="email"
+              class="email"
+              placeholder="Email Address"
+            />
+            <span class="emailError errorMessage"></span>
+          </div>
+          <div class="">
+            <input
+              type="number"
+              name="Number"
+              placeholder="Phone Number"
+              class="phoneNumber"
+            />
+            <span class="phoneNumberError errorMessage"></span>
+          </div>
+
+          <div class="">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="password"
+            />
+            <span class="passwordError errorMessage"></span>
+          </div>
+          <div class="submitBtnWrapper">
+            <button class="loadingBtn" disabled>
+              <div class="loader"></div>
+              loading
+            </button>
+            <input type="submit" class="signupBtn" value="SignUp" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="./js/validation.js"></script>
+  <script>
+    var titleText = document.querySelector(".formWrapper .title");
+    var loginForm = document.querySelector(".formWrapper .login");
+    var signupForm = document.querySelector(".formWrapper .signup");
+    var showLoginBtn = document.querySelector(".showLoginBtn");
+    var showSignupBtn = document.querySelector(".showSignupBtn");
+    function changeTab(e) {
+      if (e == 1) {
+        titleText.innerHTML = "LOGIN";
+        titleText.classList.replace("inActive", "active");
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+        showSignupBtn.classList.replace("active", "inActive");
+        showLoginBtn.classList.replace("inActive", "active");
+      } else {
+        titleText.innerHTML = "SIGNUP";
+        loginForm.style.display = "none";
+        showSignupBtn.classList.replace("inActive", "active");
+        showLoginBtn.classList.replace("active", "inActive");
+
+        signupForm.style.display = "block";
+      }
+    }
+  </script>
+</html>
